@@ -12,14 +12,52 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <header class = "header-nav anv-ber">
-      <h2 class = "app-title">
-        Premi
-      </h2>
-      <div class = "login-btn">
-        ログインはこちら
+    <header class = "header-nav">
+      <div class = "header-nav__bar">
+        <h2 class = "app-title">
+          Premi
+        </h2>
+        <% if user_signed_in? %>
+          <div class = "login-btn">
+            <%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
+          </div>
+        <% else %>
+          <div class = "login-btn">
+            <%= link_to "ログインはこちら", new_user_session_path%>
+          </div>
+        <% end %>
       </div>
+      <% if user_signed_in? %>
+        <div class = "header-nav__menu">
+          <div class = "header-nav__menu__item">
+            ホーム
+          </div>
+          <div class = "header-nav__menu__item">
+            マイページ
+          </div>
+          <div class = "header-nav__menu__item">
+            取引先一覧
+          </div>
+          <div class = "header-nav__menu__item">
+            商品一覧
+          </div>
+        </div>
+      <% end %>
     </header>
+    <div class = "main">
+      <div class = "main__indexpage">
+        <div class = main__indexpage__content>
+          <div class = main__indexpage__content__headerwrapper>
+            <div class = main__indexpage__content__headerwrapper__title>
+              最近の見積書
+            </div>
+            <div class = main__indexpage__content__headerwrapper__nav>
+              すべて見る
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

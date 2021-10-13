@@ -1,20 +1,64 @@
 .header-nav {
   width: 100%;
-  min-height: 64px;
   background-color: white;
   border-bottom: 1px solid lightgray;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 25px;
   box-sizing: border-box;
-  .app-title {
-    font-size: 30px;
-    position: relative;
-    top: 50%;
-    color: gray;
+  &__bar {
+    min-height: 64px;
+    margin: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .app-title {
+      font-size: 30px;
+      font-family: Arial Black;
+      position: relative;
+      top: 50%;
+      color: gray;
+    }
+    .login-btn {
+    }
   }
-  .login-btn {
-    float: right;
+  &__menu {
+    display: flex;
+    &__item {
+      font-size: 14px;
+      padding: 10px 20px;
+      font-weight: 700;
+      color: gray;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+}
+
+.main {
+  padding-top: 24px;
+  width: 100%;
+  &__indexpage {
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 24px;
+    &__content {
+      width: 100%;
+      margin-bottom: 32px;
+      &__headerwrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &__title {
+          font-size: 24px;
+          font-weight: 700;
+          word-break: break-all;
+        }
+        &__nav {
+          font-size: 12px;
+          color: gray;
+          cursor: pointer;
+          transition: all .2s cubic-bezier(1,0,0,1);
+        }
+      }
+    }
   }
 }
