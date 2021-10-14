@@ -1,7 +1,7 @@
 .header-nav {
   width: 100%;
   background-color: white;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #e6e6e6;
   box-sizing: border-box;
   &__bar {
     min-height: 64px;
@@ -17,8 +17,8 @@
       top: 50%;
       color: gray;
     }
-    .login-btn {
-    }
+    // .login-btn {
+    // }
   }
   &__menu {
     display: flex;
@@ -57,6 +57,120 @@
           color: gray;
           cursor: pointer;
           transition: all .2s cubic-bezier(1,0,0,1);
+        }
+      }
+    }
+  }
+}
+
+.home {
+  height: 400px;
+  padding: auto;
+  padding-top: 100px;
+  background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
+  background-size: cover;
+  &__inner {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    .login {
+      padding: 50px 32px 24px;
+      &__btn {
+        background-color: rgb(0, 158, 206);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 40px;
+        padding: 0 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+      }
+    }
+    .signin {
+      padding: 24px 32px 50px;
+      text-align: center;
+      &__btn {
+        background-color: rgb(0, 158, 206);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 40px;
+        padding: 0 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+      }
+    }
+  }
+}
+
+.signup {
+  display: block;
+  min-height: calc(100vh - 65px);
+  padding: 40px 16px 200px;
+  &__title {
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+  }
+  &__form {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+    &__input {
+      padding: 24px 32px 32px;
+      .input-area {
+        margin-bottom: 20px;
+        &__title {
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+        &__required {
+          margin-left: 8px;
+          color: #ED4956;
+        }
+        &__text-field {
+          width: 100%;
+          background-color: #fff;
+          border: 1px solid #e1e5e7;
+          height: 40px;
+          padding: 5px 10px;
+          margin-top: 5px;
+          vertical-align: middle;
+          border-radius: 4px;
+          cursor: text;
+        }
+        .submit-btn {
+          font-size: 16px !important;
+          font-weight: bold;
+          border-radius: 4px !important;
+          display: block;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          height: 50px;
+          line-height: 48px;
+          border: 1px solid rgb(0, 158, 206);
+          background-color: rgb(0, 158, 206);
+          color: #fff;
         }
       }
     }

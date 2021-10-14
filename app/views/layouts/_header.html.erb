@@ -1,0 +1,32 @@
+<header class = "header-nav">
+  <div class = "header-nav__bar">
+    <h2 class = "app-title">
+      Premi
+    </h2>
+    <% if user_signed_in? %>
+      <div class = "login-btn">
+        <%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
+      </div>
+    <% else %>
+      <div class = "login-btn">
+        <%= link_to "ログインはこちら", new_user_session_path%>
+      </div>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class = "header-nav__menu">
+      <div class = "header-nav__menu__item">
+        ホーム
+      </div>
+      <div class = "header-nav__menu__item">
+        マイページ
+      </div>
+      <div class = "header-nav__menu__item">
+        取引先一覧
+      </div>
+      <div class = "header-nav__menu__item">
+        商品一覧
+      </div>
+    </div>
+  <% end %>
+</header>
