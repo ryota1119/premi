@@ -176,3 +176,92 @@
     }
   }
 }
+
+// マイページ
+.main {
+  padding-top: 24px;
+  width: 100%;
+  .mypage {
+    max-width: 940px;
+    margin: 0 auto;
+    &__title {
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    &__content {
+      padding: 0 0 25px 0;
+      .profile {
+        background: #f0f0f0;
+        padding: 36px 48px 40px 48px;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        &__header {
+          border-bottom: 1px solid #dcdcdc;
+          font-size: 18px;
+          padding: 0 0 10px 0;
+        }
+        &__body {
+          font-weight: normal;
+          font-style: normal;
+          .informationbox {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            display: table;
+            box-sizing: border-box;
+            text-indent: initial;
+            border-color: grey;
+            &__inner {
+              border-bottom: 1px solid #dcdcdc;
+              th {
+                padding: 25px 0 23px 0;
+                border: none;
+                background: none;
+                color: #808080;
+                width: 175px;
+                vertical-align: middle;
+                font-weight: normal;
+                font-style: normal;
+              }
+              td {
+                padding: 25px 0 23px 0;
+                border: none;
+                line-height: 1.8;
+                p {
+                  display: block;
+                  margin-inline-start: 0px;
+                  margin-inline-end: 0px;
+                }
+                .information_details__big {
+                  font-size: 25px;
+                  margin-bottom: 5px;
+                }
+              }
+              .change {
+                width: 51px;
+                vertical-align: middle;
+                .btn {
+                  .edit-btn {
+                    padding: 2px 0 0;
+                    width: 51px;
+                    font-size: 13px;
+                    text-decoration: none;
+                    border: 1px solid #23ABDD;
+                    color: #23ABDD !important;
+                    display: block;
+                    text-align: center;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    position: relative;
+                    z-index: 1;
+                    align-items: center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

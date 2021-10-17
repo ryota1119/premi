@@ -1,2 +1,35 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="main">
+  <div class="mypage">
+    <h1 class="mypage__title">
+      <%= @user.name %>様の登録情報
+    </h1>
+    <div class="mypage__content">
+      <div class="profile">
+        <div class="profile__header">
+          <h3>会員登録情報</h3>
+        </div>
+        <div class="profile__body">
+          <table class="informationbox">
+            <tr class="informationbox__inner">
+              <th class="information_title">基本情報</th>
+              <td class="information_details">
+                <p class="information_details__big"><%= @user.name %>　様</p>
+                <p><%= @user.email %></p><br>
+                <p class="information_details__big"><%= @company.company_name %></p>
+                <p>〒<%= @company.postal_code %></p>
+                <p><%= @company.address %></p>
+                <p>電話番号: <%= @company.tel %></p>
+                <p>FAX番号: <%= @company.fax %></p>
+              </td>
+              <td class="change">
+                <p class="btn">
+                  <%= link_to "編集", "/", class: "edit-btn" %>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

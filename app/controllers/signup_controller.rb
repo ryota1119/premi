@@ -27,7 +27,7 @@ class SignupController < ApplicationController
     @user.build_company(user_params[:company_attributes])
     if @user.save
       session[:id] = @user.id
-      redirect_to user_path
+      redirect_to root_path
     else
       render '/signup/step1'
     end
