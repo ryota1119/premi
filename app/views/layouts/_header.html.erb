@@ -20,7 +20,7 @@
   <% if user_signed_in? %>
     <div class = "header-nav__menu">
       <div class = "header-nav__menu__item">
-        ホーム
+        <%= link_to "ホーム", root_path %>
       </div>
       <div class = "header-nav__menu__item">
         <%= link_to "マイページ", user_path(current_user) %>

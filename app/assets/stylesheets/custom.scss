@@ -145,9 +145,6 @@
 }
 
 .signup {
-  max-height: 900px;
-  background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
-  background-size: cover;
   display: block;
   padding: 40px 16px 100px;
   &__title {
@@ -218,6 +215,7 @@
     max-width: 940px;
     margin: 0 auto;
     &__title {
+      // color: white;
       margin-bottom: 16px;
       font-size: 22px;
     }

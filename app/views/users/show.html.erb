@@ -13,7 +13,7 @@
             <tr class="informationbox__inner">
               <th class="user-info">基本情報</th>
               <td class="details">
-                <p class="details__big"><%= @user.name %>　様</p>
+                <p class="details__big"><%= @user.name %></p>
                 <p><%= @user.email %></p><br>
               </td>
               <td class="change">
@@ -33,7 +33,7 @@
               </td>
               <td class="change">
                 <p class="btn">
-                  <%= link_to "会社情報編集", "/", class: "edit-btn" %>
+                  <%= link_to "会社情報編集", edit_company_path, class: "edit-btn" %>
                 </p>
               </td>
             </tr>
