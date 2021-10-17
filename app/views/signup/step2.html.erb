@@ -1,0 +1,48 @@
+<main class = "signup">
+  <h1 class = "signup__title">
+    会社情報入力
+  </h1>
+  <div class = "signup__form">
+    <div class = "signup__form__input">
+      <%= form_for @user, url: signup_index_path, method: :post do |f| %>
+        <%= hidden_field_tag :current_step, 'step2' %>
+        <%= f.fields_for :company do |f| %>
+
+        <div class="input-area">
+          <%= f.label :company_name, "会社名", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+          <%= f.text_field :company_name, autofocus: true, autocomplete: "company_name", class: "input-area__text-field" %>
+        </div>
+
+        <div class="input-area">
+          <%= f.label :tel, "電話番号", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+          <%= f.text_field :tel, autofocus: true, autocomplete: "tel", class: "input-area__text-field" %>
+        </div>
+
+        <div class="input-area">
+          <%= f.label :fax, "FAX番号", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+          <%= f.text_field :fax, autofocus: true, autocomplete: "fax", class: "input-area__text-field" %>
+        </div>
+
+        <div class="input-area">
+          <%= f.label :postal_code, "郵便番号", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "input-area__text-field" %>
+        </div>
+
+        <div class="input-area">
+          <%= f.label :address, "住所", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "input-area__text-field" %>
+        </div>
+
+        <div class="input-area">
+        <% end %>
+          <%= f.submit "登録を完了する", class: "submit-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
