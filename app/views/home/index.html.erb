@@ -1,12 +1,27 @@
 <main class = "home">
   <div class = "home__inner">
     <div class = "home__inner__message">
+      <div class="home__inner__message__top">
+        <h1 class="home__inner__message__text">見積書を<br/>かんたん作成！まとめて管理！</h1>
+      </div>
     </div>
-    <div class = "login">
-      <%= link_to "ログイン", new_user_session_path, class: "login__btn"%>
+    <% if user_signed_in? %>
+      <div class="create_documents">
+        <div class="create_documents__btn">
+          <div class="create_documents__btn__text">
+            書類を作成する
+          </div>
+        </div>
+      </div>
+    <% else %>
+    <div class="devise_box">
+      <div class = "devise_box__btn">
+        <%= link_to "ログイン", new_user_session_path, class: "devise_box__btn__text"%>
+      </div>
+      <div class = "devise_box__btn">
+        <%= link_to "新規登録", step1_signup_index_path, class: "devise_box__btn__text"%>
+      </div>
     </div>
-    <div class = "signin">
-      <%= link_to "新規登録", step1_signup_index_path, class: "signin__btn"%>
-    </div>
+    <% end %>
   </div>
 </main>

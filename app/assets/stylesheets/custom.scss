@@ -63,64 +63,96 @@
   }
 }
 
+// ホーム
 .home {
-  height: 400px;
+  height: 600px;
   padding: auto;
-  padding-top: 100px;
+  padding-top: 30px;
   background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
   background-size: cover;
   &__inner {
-    width: 100%;
-    max-width: 360px;
+    max-width: 1200px;
+    align-items: center;
     margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 4px;
-    .login {
-      padding: 50px 32px 24px;
-      &__btn {
-        background-color: rgb(0, 158, 206);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 40px;
-        padding: 0 16px;
-        font-weight: 700;
-        line-height: 1;
-        text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: 4px;
-        border: none;
+    &__message {
+      margin-bottom: 0;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      &__top {
+        margin: 27px auto 43px auto;
+        padding: 44px 46px 43px 78px;
+        background-color: rgba(2, 193, 216, .7);
+        color: #fff;
+        text-align: left;
+        // text-shadow: 0 0 18px rgb(16 54 58 / 20%);
+        font-size: 40px;
+        line-height: 1.4;
       }
     }
-    .signin {
-      padding: 24px 32px 50px;
-      text-align: center;
+    .create_documents {
+      width: 360px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      padding: 20px 0;
       &__btn {
-        background-color: rgb(0, 158, 206);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        min-height: 40px;
-        padding: 0 16px;
-        font-weight: 700;
-        line-height: 1;
         text-align: center;
-        text-decoration: none;
-        cursor: pointer;
-        border-radius: 4px;
-        border: none;
+        &__text {
+          margin: 15px;
+          display: inline-block;
+          box-sizing: border-box;
+          padding: 15px 20px 14px;
+          max-width: 260px;
+          width: 100%;
+          border: 2px solid #ff9e06;
+          border-radius: 5px;
+          background: #ff9e06;
+          color: #fff;
+          text-align: center;
+          font-weight: 500;
+          line-height: 1.2;
+        }
+      }
+    }
+    .devise_box {
+      width: 360px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 4px;
+      padding: 20px 0;
+      &__btn {
+        text-align: center;
+        &__text {
+          margin: 15px;
+          display: inline-block;
+          box-sizing: border-box;
+          padding: 15px 20px 14px;
+          max-width: 260px;
+          width: 100%;
+          border: 2px solid #ff9e06;
+          border-radius: 5px;
+          background: #ff9e06;
+          color: #fff;
+          text-align: center;
+          font-weight: 500;
+          line-height: 1.2;
+        }
       }
     }
   }
 }
 
 .signup {
+  height: 600px;
+  background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
+  background-size: cover;
   display: block;
-  min-height: calc(100vh - 65px);
   padding: 40px 16px 200px;
   &__title {
     margin-bottom: 16px;

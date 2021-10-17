@@ -1,15 +1,19 @@
 <header class = "header-nav">
   <div class = "header-nav__bar">
     <h2 class = "app-title">
-      Premi
+      <%= link_to "Premi", root_path %>
     </h2>
     <% if user_signed_in? %>
       <div class = "login-btn">
         <%= link_to "ログアウト", destroy_user_session_path, :method => :delete%>
       </div>
-    <% else %>
+    <% elsif request.path == "/signup/step1" %>
       <div class = "login-btn">
         <%= link_to "ログインはこちら", new_user_session_path%>
+      </div>
+    <% elsif request.path == "/users/sign_in" %>
+      <div class = "login-btn">
+        <%= link_to "新規登録はこちら",  step1_signup_index_path%>
       </div>
     <% end %>
   </div>
