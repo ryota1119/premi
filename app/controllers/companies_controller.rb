@@ -6,5 +6,7 @@ class CompaniesController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @company = @user.company
   end
 end

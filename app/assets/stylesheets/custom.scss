@@ -65,9 +65,9 @@
 
 // ホーム
 .home {
-  height: 600px;
-  padding: auto;
-  padding-top: 30px;
+  max-height: 600px;
+  min-height: 300px;
+  padding: 50px 0;
   background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
   background-size: cover;
   &__inner {
@@ -96,8 +96,6 @@
     .create_documents {
       width: 360px;
       margin: 0 auto;
-      background-color: #fff;
-      border: 1px solid #e6e6e6;
       border-radius: 4px;
       padding: 20px 0;
       &__btn {
@@ -122,8 +120,6 @@
     .devise_box {
       width: 360px;
       margin: 0 auto;
-      background-color: #fff;
-      border: 1px solid #e6e6e6;
       border-radius: 4px;
       padding: 20px 0;
       &__btn {
@@ -149,11 +145,11 @@
 }
 
 .signup {
-  height: 600px;
+  max-height: 900px;
   background-image: url(jeshoots-com-pUAM5hPaCRI-unsplash.jpg);
   background-size: cover;
   display: block;
-  padding: 40px 16px 200px;
+  padding: 40px 16px 100px;
   &__title {
     margin-bottom: 16px;
     font-size: 22px;
@@ -171,6 +167,11 @@
       padding: 24px 32px 32px;
       .input-area {
         margin-bottom: 20px;
+        input:focus,
+        texture:focus {
+            box-shadow: 0 0 7px #3498db;
+            border: 1px solid #3498db;
+        }
         &__title {
           font-weight: 700;
           margin-bottom: 4px;
@@ -264,8 +265,12 @@
                   margin-inline-start: 0px;
                   margin-inline-end: 0px;
                 }
-                .information_details__big {
+                .details__big {
                   font-size: 25px;
+                  margin-bottom: 5px;
+                }
+                .details__middle {
+                  font-size: 20px;
                   margin-bottom: 5px;
                 }
               }
@@ -275,7 +280,8 @@
                 .btn {
                   .edit-btn {
                     padding: 2px 0 0;
-                    width: 51px;
+                    width: 100px;
+                    height: 30px;
                     font-size: 13px;
                     text-decoration: none;
                     border: 1px solid #23ABDD;
@@ -297,3 +303,4 @@
     }
   }
 }
+
