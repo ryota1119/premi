@@ -12,7 +12,6 @@ class SignupController < ApplicationController
     session[:user_params] = user_params
     session[:company_attributes_after_step1] = user_params[:company_attributes]
     @user = User.new(session[:user_params])
-    @user.build_company(session[:company_attributes_after_step1])
     render '/signup/step1' unless @user.valid?
   end 
 

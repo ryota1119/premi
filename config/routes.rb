@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   resources :users
   resources :companies
+  resources :customers
 
   get "signup", to: "signup#index"
   resources :signup do

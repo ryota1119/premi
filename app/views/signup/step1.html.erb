@@ -5,6 +5,7 @@
   <div class = "signup__form">
     <div class = "signup__form__input">
       <%= form_for @user, url: step2_signup_index_path do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <%= hidden_field_tag :current_step, 'step1' %>
       
         <div class="input-area">
