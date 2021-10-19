@@ -5,6 +5,7 @@
   <div class = "signup__form">
     <div class = "signup__form__input">
       <%= form_for @company, url: company_path(@company) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
 
         <div class="input-area">
           <%= f.label :company_name, "会社名", class: "input-area__title" %>

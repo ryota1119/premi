@@ -1,0 +1,6 @@
+<%= form_for @customer, url: customers_path(@customer) do |f|%>
+  <%= f.label :customer_company, "顧客会社名" %>
+  <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company" %>
+
+  <%= f.submit "登録" %>
+<% end %>

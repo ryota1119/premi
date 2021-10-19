@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_122150) do
+ActiveRecord::Schema.define(version: 2021_10_19_123004) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", default: "", null: false
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_10_18_122150) do
     t.string "customer_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,4 +56,5 @@ ActiveRecord::Schema.define(version: 2021_10_18_122150) do
   end
 
   add_foreign_key "contact_people", "customers"
+  add_foreign_key "customers", "users"
 end

@@ -10,13 +10,12 @@ class SignupController < ApplicationController
 
   def save_step1_to_session
     session[:user_params] = user_params
-    session[:company_attributes_after_step1] = user_params[:company_attributes]
     @user = User.new(session[:user_params])
     render '/signup/step1' unless @user.valid?
   end 
 
   def step2
-    session[:user_params] = user_params  #userモデルの値をぶっこむ。
+    session[:user_params] = user_params
     @user = User.new
     @user.build_company
   end
@@ -26,6 +25,7 @@ class SignupController < ApplicationController
     @user.build_company(user_params[:company_attributes])
     if @user.save
       session[:id] = @user.id
+      sign_in @user
       redirect_to root_path
     else
       render '/signup/step1'
