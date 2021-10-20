@@ -1,6 +1,37 @@
-<%= form_for @customer, url: customers_path(@customer) do |f|%>
-  <%= f.label :customer_company, "顧客会社名" %>
-  <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company" %>
+<div class="main">
+  <div class="new_customer">
+    <h1 class="new_customer__title">
+      顧客登録ページ
+    </h1>
 
-  <%= f.submit "登録" %>
-<% end %>
+    <div class="new_customer__form">
+
+      <div class="new_customer__form__input">
+        <%= form_with model: @customer, local: true do |f|%>
+          <div class="input-area">
+            <%= f.label :customer_company, "顧客会社名", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+            <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company", class: "input-area__text-field" %>
+          </div>
+          <%= f.fields_for :contact_persons do |cp| %>
+            <div class="input-area">
+              <%= cp.label :department, "部署名", class: "input-area__title" %>
+              <%= cp.text_field :department, autofocus: true, autocomplete: "department", class: "input-area__text-field" %>
+            </div>
+            <div class="input-area">
+              <%= cp.label :position, "役職", class: "input-area__title" %>
+              <%= cp.text_field :position, autofocus: true, autocomplete: "position", class: "input-area__text-field" %>
+            </div>
+            <div class="input-area">
+              <%= cp.label :name, "担当者名", class: "input-area__title" %>
+              <span class = "input-area__required">必須</span><br />
+              <%= cp.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field" %>
+            </div>
+          <% end %>
+
+          <div class="input-area">
+            <%= f.submit "登録", class: "submit-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>

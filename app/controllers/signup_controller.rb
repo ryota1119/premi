@@ -22,7 +22,7 @@ class SignupController < ApplicationController
 
   def create
     @user = User.new(session[:user_params])
-    @user.build_company(user_params[:company_attributes])
+    @user.build_company(user_params[:companies_attributes])
     if @user.save
       session[:id] = @user.id
       sign_in @user
@@ -39,7 +39,7 @@ class SignupController < ApplicationController
       :email,
       :password, 
       :password_confirmation, 
-      company_attributes: [:id, :company_name, :tel, :fax, :postal_code, :address]
+      companies_attributes: [:id, :company_name, :tel, :fax, :postal_code, :address]
     )
   end
 end

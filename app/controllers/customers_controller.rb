@@ -10,7 +10,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-    @contact_person = @customer.contact_person.build
+    @customer.contact_persons.build
   end
 
   def create
@@ -19,7 +19,7 @@ class CustomersController < ApplicationController
       redirect_to customers_path
     else
       @customer = Customer.new(customer_params)
-      render new
+      render :new
     end
   end
 
@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(
       :customer_company,
-      contact_people_attribute: [:id, :department, :position, :name]
+      contact_persons_attributes: [:id, :customer_id, :department, :position, :name]
     )
   end
 end

@@ -3,6 +3,10 @@
     <h1 class="mypage__title">
       <%= @user.name %>様の取引先一覧ページ
     </h1>
+    <div>
+      <%= link_to "顧客登録", new_customer_path %>
+    </div>
+
 <% @customers.each do |customer| %>
   <%= customer.customer_company %>
 <% end %>
