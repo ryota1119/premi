@@ -1,12 +1,29 @@
 <div class="main">
-  <div class="mypage">
-    <h1 class="mypage__title">
-      <%= @user.name %>様の取引先一覧ページ
-    </h1>
-    <div>
-      <%= link_to "顧客登録", new_customer_path %>
+  <div class="customer-index">
+    <div class="customer-index__header">
+      <h1 class="customer-index__header__title">
+        取引先一覧
+      </h1>
+      <div>
+        <%= link_to "顧客登録", new_customer_path, class: "new_customer_btn" %>
+      </div>
     </div>
-
-<% @customers.each do |customer| %>
-  <%= customer.customer_company %>
-<% end %>
+    <div class="customer-index__contents">
+      <% @customers.each do |customer| %>
+        <div class="customer-index__contents__info">
+          <div class="customer-index__contents__info__company">
+            <%= customer.customer_company %>
+          </div>
+          <div class="customer-index__contents__info__nav">
+            <div class="customer-index__contents__info__nav__btn">
+              編集
+            </div>
+            <div class="customer-index__contents__info__nav__btn">
+              削除
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
