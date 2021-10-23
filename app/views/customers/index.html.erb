@@ -16,10 +16,10 @@
           </div>
           <div class="customer-index__contents__info__nav">
             <div class="customer-index__contents__info__nav__btn">
-              編集
+              <%= link_to "編集", edit_customer_path(customer) %>
             </div>
             <div class="customer-index__contents__info__nav__btn">
-              削除
+              <%= link_to "削除", customer_path(customer), method: :delete %>
             </div>
           </div>
         </div>

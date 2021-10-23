@@ -1,0 +1,20 @@
+<div class="main">
+  <div class="new_customer">
+    <h1 class="new_customer__title">
+      顧客登録ページ
+    </h1>
+    <div class="new_customer__form">
+      <div class="new_customer__form__input">
+        <%= form_with model: @customer, local: true do |f|%>
+          <div class="input-area">
+            <%= f.label :customer_company, "顧客会社名", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+            <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company", class: "input-area__text-field" %>
+          </div>
+        <div class="input-area">
+          <%= f.submit "登録", class: "submit-btn" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
