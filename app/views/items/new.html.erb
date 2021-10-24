@@ -1,2 +1,24 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="main">
+  <div class="new_item">
+    <h1 class="new_item__title">
+      商品登録ページ
+    </h1>
+
+    <div class="new_item__form">
+
+      <div class="new_item__form__input">
+        <%= form_with model: @item, local: true do |f|%>
+
+          <div class="input-area">
+            <%= f.label :item_name, "商品名", class: "input-area__title" %>
+            <span class = "input-area__required">必須</span><br />
+            <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area__text-field" %>
+          </div>
+
+          <div class="input-area">
+            <%= f.submit "登録", class: "submit-btn" %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>

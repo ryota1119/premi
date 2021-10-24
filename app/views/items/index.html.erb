@@ -1,2 +1,33 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="main">
+  <div class="item-index">
+    <div class="item-index__header">
+      <h1 class="item-index__header__title">
+        商品一覧
+      </h1>
+      <div>
+        <%= link_to "商品登録", new_item_path, class: "new_item_btn" %>
+      </div>
+    </div>
+    <div class="item-index__contents">
+      <% if @items.present? %>
+        <% @items.each do |item| %>
+          <div class="item-index__contents__info">
+            <div class="item-index__contents__info__company">
+              <%= item.item_name %>
+            </div>
+            <div class="item-index__contents__info__nav">
+              <div class="item-index__contents__info__nav__btn">
+                <%= link_to "編集", edit_item_path(item) %>
+              </div>
+              <div class="item-index__contents__info__nav__btn">
+                <%= link_to "削除", item_path(item), method: :delete %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p>登録商品はありません。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
