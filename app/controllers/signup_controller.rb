@@ -22,13 +22,13 @@ class SignupController < ApplicationController
 
   def create
     @user = User.new(session[:user_params])
-    @user.build_company(user_params[:companies_attributes])
+    @user.build_company(user_params[:company_attributes])
+    byebug
     if @user.save
       session[:id] = @user.id
       sign_in @user
       redirect_to root_path
     else
-      @user.build_company(user_params[:companies_attributes])
       render '/signup/step2'
     end
   end
@@ -40,7 +40,7 @@ class SignupController < ApplicationController
       :email,
       :password, 
       :password_confirmation, 
-      companies_attributes: [:id, :company_name, :tel, :fax, :postal_code, :address]
+      company_attributes: [:id, :company_name, :tel, :fax, :postal_code, :address]
     )
   end
 end
