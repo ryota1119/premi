@@ -13,7 +13,11 @@
       </div>
     <% elsif request.path == "/users/sign_in" %>
       <div class = "login-btn">
-        <%= link_to "新規登録はこちら",  step1_signup_index_path%>
+        <%= link_to "新規登録はこちら", step1_signup_index_path%>
+      </div>
+    <% else %>
+      <div class = "login-btn">
+        <%= link_to "新規登録はこちら", step1_signup_index_path%>
       </div>
     <% end %>
   </div>

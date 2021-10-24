@@ -28,7 +28,8 @@ class SignupController < ApplicationController
       sign_in @user
       redirect_to root_path
     else
-      render '/signup/step1'
+      @user.build_company(user_params[:companies_attributes])
+      render '/signup/step2'
     end
   end
 

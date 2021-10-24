@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'items/index'
+  get 'items/new'
+  get 'items/edit'
+  get 'items/update'
+  get 'items/destroy'
   devise_for :users
   root to: "home#index"
   resources :users
