@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
 
   def index
     @user = current_user
-    @customers = Customer.all
+    @customers = @user.customers
   end
 
   def show
@@ -48,7 +48,7 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(
       :customer_company,
       contact_persons_attributes: [:id, :customer_id, :department, :position, :name]
-    )
+    ).merge(user_id: current_user.id)
   end
 
 end

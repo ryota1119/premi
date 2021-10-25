@@ -23,7 +23,6 @@ class SignupController < ApplicationController
   def create
     @user = User.new(session[:user_params])
     @user.build_company(user_params[:company_attributes])
-    byebug
     if @user.save
       session[:id] = @user.id
       sign_in @user

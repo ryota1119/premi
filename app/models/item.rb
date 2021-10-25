@@ -1,3 +1,4 @@
 class Item < ApplicationRecord
-  validates :item_name, presence: true 
+  belongs_to :user
+  validates :item_name, presence: true
 end

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @user = current_user
+    @items = @user.items
   end
 
   def new
@@ -40,6 +41,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(
       :item_name
-    )
+    ).merge(user_id: current_user.id)
   end
 end
