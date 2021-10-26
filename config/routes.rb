@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :companies
   resources :customers
   resources :items
+  resources :estimates
+  resources :estimate_details
 
   get "signup", to: "signup#index"
   resources :signup do
