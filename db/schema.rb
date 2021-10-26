@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_25_110830) do
+ActiveRecord::Schema.define(version: 2021_10_26_131458) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name", default: "", null: false
@@ -42,6 +42,28 @@ ActiveRecord::Schema.define(version: 2021_10_25_110830) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
+  create_table "estimate_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "volume"
+    t.string "price"
+    t.bigint "item_id"
+    t.bigint "estimate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estimate_id"], name: "index_estimate_details_on_estimate_id"
+    t.index ["item_id"], name: "index_estimate_details_on_item_id"
+  end
+
+  create_table "estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "effective"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "customer_id", null: false
+    t.index ["customer_id"], name: "index_estimates_on_customer_id"
+    t.index ["user_id"], name: "index_estimates_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.datetime "created_at", null: false
@@ -65,5 +87,9 @@ ActiveRecord::Schema.define(version: 2021_10_25_110830) do
 
   add_foreign_key "contact_people", "customers"
   add_foreign_key "customers", "users"
+  add_foreign_key "estimate_details", "estimates"
+  add_foreign_key "estimate_details", "items"
+  add_foreign_key "estimates", "customers"
+  add_foreign_key "estimates", "users"
   add_foreign_key "items", "users"
 end
