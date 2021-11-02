@@ -8,9 +8,7 @@
     <% if user_signed_in? %>
       <div class="create_documents">
         <div class="create_documents__btn">
-          <div class="create_documents__btn__text">
-            書類を作成する
-          </div>
+          <%= link_to "見積書を作成する", new_estimate_path, class: "create_documents__btn__text" %>
         </div>
       </div>
     <% else %>
