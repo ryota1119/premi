@@ -1,10 +1,14 @@
 <% @estimates.each do |estimate| %>
-  <%= estimate.customer.company_name %>御中
-  <%= estimate.effective %>
-  <% estimate.estimate_details.each do |detail| %>
-    <%= detail.item.item_name %>
-    <%= detail.volume %>
-    <%= detail.price %>
-  <% end %>
-  <%= estimate.note %>
+  <div>
+    <%= estimate.customer.company_name %>御中
+    <%= estimate.effective %>
+    <%= estimate.contact_person.name %>様
+    <% estimate.estimate_details.each do |detail| %>
+      <%= detail.item.item_name %>
+      <%= detail.volume %>個
+      <%= detail.price %>円
+    <% end %>
+    <%= estimate.note %>
+    <%= estimate.created_at %>
+  </div>
 <% end %>
