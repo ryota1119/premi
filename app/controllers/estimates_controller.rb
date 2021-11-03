@@ -1,7 +1,11 @@
 class EstimatesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-
+    @user = current_user
+    @customers = @user.customers
+    @estimates = @user.estimates
+    
   end
 
   def show

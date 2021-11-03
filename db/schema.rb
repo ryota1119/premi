@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2021_10_26_131458) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "customer_id", null: false
+    t.bigint "contact_person_id", null: false
+    t.index ["contact_person_id"], name: "index_estimates_on_contact_person_id"
     t.index ["customer_id"], name: "index_estimates_on_customer_id"
     t.index ["user_id"], name: "index_estimates_on_user_id"
   end
@@ -89,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_131458) do
   add_foreign_key "customers", "users"
   add_foreign_key "estimate_details", "estimates"
   add_foreign_key "estimate_details", "items"
+  add_foreign_key "estimates", "contact_people"
   add_foreign_key "estimates", "customers"
   add_foreign_key "estimates", "users"
   add_foreign_key "items", "users"

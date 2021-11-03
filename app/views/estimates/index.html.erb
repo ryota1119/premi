@@ -1,0 +1,10 @@
+<% @estimates.each do |estimate| %>
+  <%= estimate.customer.company_name %>御中
+  <%= estimate.effective %>
+  <% estimate.estimate_details.each do |detail| %>
+    <%= detail.item.item_name %>
+    <%= detail.volume %>
+    <%= detail.price %>
+  <% end %>
+  <%= estimate.note %>
+<% end %>
