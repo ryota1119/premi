@@ -1,11 +1,27 @@
 <%= form_with model: @estimate, url: "/estimates", local: true do |f|%>
   <div class="input-area">
+    <%= f.label :company_name, "会社名", class: "input-area__title" %>
+    <%= f.text_field :company_name, autofocus: true, autocomplete: "company_name", class: "input-area__text-field" %>
+  </div>
+  <div class="input-area">
+    <%= f.label :department, "部署", class: "input-area__title" %>
+    <%= f.text_field :department, autofocus: true, autocomplete: "department", class: "input-area__text-field" %>
+  </div>
+  <div class="input-area">
+    <%= f.label :position, "役職", class: "input-area__title" %>
+    <%= f.text_field :position, autofocus: true, autocomplete: "position", class: "input-area__text-field" %>
+  </div>
+  <div class="input-area">
+    <%= f.label :name, "担当者名", class: "input-area__title" %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field" %>
+  </div>
+  <div class="input-area">
     <%= f.label :effective, "有効期限", class: "input-area__title" %>
     <%= f.text_field :effective, autofocus: true, autocomplete: "effective", class: "input-area__text-field" %>
   </div>
   <div class="input-area">
-    <%= f.label :note, "備考", class: "input-area__title" %>
-    <%= f.text_field :note, autofocus: true, autocomplete: "note", class: "input-area__text-field" %>
+    <%= f.label :item_name, "商品名", class: "input-area__title" %>
+    <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area__text-field" %>
   </div>
   <div class="input-area">
     <%= f.label :volume, "数量", class: "input-area__title" %>
@@ -16,12 +32,8 @@
     <%= f.text_field :price, autofocus: true, autocomplete: "price", class: "input-area__text-field" %>
   </div>
   <div class="input-area">
-    <%= f.label :customer_company, "会社名", class: "input-area__title" %>
-    <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company", class: "input-area__text-field" %>
-  </div>
-  <div class="input-area">
-    <%= f.label :name, "担当者名", class: "input-area__title" %>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field" %>
+    <%= f.label :note, "備考", class: "input-area__title" %>
+    <%= f.text_field :note, autofocus: true, autocomplete: "note", class: "input-area__text-field" %>
   </div>
 
   <div class="input-area">

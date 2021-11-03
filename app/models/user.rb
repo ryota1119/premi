@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one :company, dependent: :destroy
   has_many :customers
   has_many :items
+  has_many :estimates
   accepts_nested_attributes_for :company, allow_destroy: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

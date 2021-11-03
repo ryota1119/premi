@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_013936) do
+ActiveRecord::Schema.define(version: 2021_10_26_131458) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -24,18 +24,18 @@ ActiveRecord::Schema.define(version: 2021_11_03_013936) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-  create_table "contact_person", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "contact_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "customer_id"
     t.string "department"
     t.string "position"
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_contact_person_on_customer_id"
+    t.index ["customer_id"], name: "index_contact_people_on_customer_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "company_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_013936) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "item_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_013936) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "contact_person", "customers"
+  add_foreign_key "contact_people", "customers"
   add_foreign_key "customers", "users"
   add_foreign_key "estimate_details", "estimates"
   add_foreign_key "estimate_details", "items"

@@ -46,7 +46,7 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(
-      :customer_company,
+      :company_name,
       contact_persons_attributes: [:id, :customer_id, :department, :position, :name]
     ).merge(user_id: current_user.id)
   end

@@ -1,15 +1,19 @@
 class EstimatesController < ApplicationController
 
   def index
+
   end
 
   def show
     @estimate = Estimate.find(params[:id])
     @customer = @estimate.customer_id
+    @user = current_user
+
   end
 
   def new
     @estimate = EstimateForm.new
+    @user = current_user
   end
 
   def create
@@ -24,6 +28,8 @@ class EstimatesController < ApplicationController
   private
 
   def estimate_params
-    params.require(:estimate_form).permit(:effective, :note, :volume, :price, :customer_company, :name).merge(user_id: current_user.id)
+    params.require(:estimate_form).permit(
+      :company_name, :department, :position, :name, :effective, :item_name, :volume, :price, :note
+      ).merge(user_id: current_user.id)
   end
 end
