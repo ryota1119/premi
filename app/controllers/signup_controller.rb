@@ -40,7 +40,7 @@ class SignupController < ApplicationController
       :email,
       :password, 
       :password_confirmation, 
-      company_attributes: [:id, :company_name, :tel, :fax, :postal_code, :address]
+      company_attributes: [:id, :name, :tel, :fax, :postal_code, :address]
     )
   end
 end

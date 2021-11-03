@@ -10,9 +10,9 @@
         <%= form_with model: @item, local: true do |f|%>
 
           <div class="input-area">
-            <%= f.label :item_name, "商品名", class: "input-area__title" %>
+            <%= f.label :name, "商品名", class: "input-area__title" %>
             <span class = "input-area__required">必須</span><br />
-            <%= f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area__text-field" %>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field" %>
           </div>
 
           <div class="input-area">
