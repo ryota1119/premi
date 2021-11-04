@@ -7,8 +7,12 @@ class EstimateForm
   validates :company_name, :name, presence: true
   validates :volume, :price, presence: true
 
+  def initialize(estimate = Estimate.new)
+    @estimate = estimate
+    self.attributes = @estimate.attributes if @estimate.persisted?
+  end
+
   def save
-    validate!
     return false if invalid?
     customer = Customer.find_or_initialize_by(company_name: company_name, user_id: user_id)
     customer.save! if customer.new_record?
@@ -20,7 +24,4 @@ class EstimateForm
     estimate.estimate_details.create!(volume: volume, price: price, item_id: item.id)
   end
 
-  def update
-    
-  end
 end

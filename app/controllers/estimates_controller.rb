@@ -12,7 +12,6 @@ class EstimatesController < ApplicationController
     @estimate = Estimate.find(params[:id])
     @customer = @estimate.customer_id
     @user = current_user
-
   end
 
   def new
@@ -23,10 +22,13 @@ class EstimatesController < ApplicationController
   def create
     @estimate = EstimateForm.new(estimate_params)
     if @estimate.save
-      redirect_to root_path
+      redirect_to estimates_path
     else
-      1 / 0
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
   end
 
   private
