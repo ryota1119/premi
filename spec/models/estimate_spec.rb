@@ -7,7 +7,7 @@ RSpec.describe Estimate, type: :model do
       customer = create(:customer, user_id: user.id)
       contact_person = create(:contact_person, customer_id: customer.id)
       estimate = build(:estimate, user_id: user.id, customer_id: customer.id, contact_person_id: contact_person.id)
-      expect(customer).to be_valid
+      expect(estimate).to be_valid
     end
 
     it "effective, noteがなくても登録できること" do
@@ -15,7 +15,7 @@ RSpec.describe Estimate, type: :model do
       customer = create(:customer, user_id: user.id)
       contact_person = create(:contact_person, customer_id: customer.id)
       estimate = build(:estimate, effective: nil, note: nil, user_id: user.id, customer_id: customer.id, contact_person_id: contact_person.id)
-      expect(customer).to be_valid
+      expect(estimate).to be_valid
     end
   end
 end
