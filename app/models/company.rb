@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
-  VALID_PHONE_REGEX = /\A(((0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1}|[5789]0[-(]?\d{4})[-)]?)|\d{1,4}\-?)\d{4}|0120[-(]?\d{3}[-)]?\d{3})\z/
-  VALID_POSTNUM_REGEX = /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}$|^\d{5}$|^\d{7}\z/
+  VALID_PHONE_REGEX = /\A0(\d{1}[-(]?\d{4}|\d{2}[-(]?\d{3}|\d{3}[-(]?\d{2}|\d{4}[-(]?\d{1})[-)]?\d{4}\z|\A0[5789]0[-]?\d{4}[-]?\d{4}\z/
+  VALID_POSTNUM_REGEX = /\A\d{3}[-]\d{4}\z/
   belongs_to :user
   validates :name, presence: true
   validates :tel, presence: true, format: { with: VALID_PHONE_REGEX }
