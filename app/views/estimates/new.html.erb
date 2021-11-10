@@ -17,7 +17,8 @@
   </div>
   <div class="input-area">
     <%= f.label :effective, "有効期限", class: "input-area__title" %>
-    <%= f.text_field :effective, autofocus: true, autocomplete: "effective", class: "input-area__text-field" %>
+    <%= f.date_field :effective, autofocus: true, autocomplete: "effective", class: "input-area__text-field" %>
+
   </div>
   <div class="input-area">
     <%= f.label :item_name, "商品名", class: "input-area__title" %>
