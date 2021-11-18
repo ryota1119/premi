@@ -10,7 +10,8 @@ class EstimatesController < ApplicationController
 
   def show
     @estimate = Estimate.find(params[:id])
-    @customer = @estimate.customer_id
+    @customer = @estimate.customer
+    @contact_person = @estimate.contact_person
     @user = current_user
   end
 

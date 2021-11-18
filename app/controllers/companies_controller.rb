@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   end
 
   def update
+    binding.pry
     if @company.update(company_params)
       redirect_to user_path(@user)
     else
@@ -22,6 +23,6 @@ class CompaniesController < ApplicationController
   end
 
   def company_params
-    params.require(:company).permit(:name, :tel, :fax, :postal_code, :address)
+    params.require(:company).permit(:name, :tel, :fax, :postal_code, :address).merge(user_id: current_user.id)
   end
 end

@@ -20,6 +20,8 @@ module Premi
     # config.autoload_paths += %W(#{config.root}/extras)
     config.autoload_paths += %W(#{config.root}/lib)
 
+    config.eager_load_paths += %W(#{Rails.root}/lib/pdf)
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: false,

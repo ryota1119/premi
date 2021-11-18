@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :items
   resources :estimates
   resources :estimate_details
+  resources :estimate_pdf, only: [:index, :show]
 
   get "signup", to: "signup#index"
   resources :signup do
