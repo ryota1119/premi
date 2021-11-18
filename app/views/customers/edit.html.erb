@@ -7,9 +7,9 @@
       <div class="new_customer__form__input">
         <%= form_with model: @customer, local: true do |f|%>
           <div class="input-area">
-            <%= f.label :customer_company, "顧客会社名", class: "input-area__title" %>
+            <%= f.label :company_name, "顧客会社名", class: "input-area__title" %>
             <span class = "input-area__required">必須</span><br />
-            <%= f.text_field :customer_company, autofocus: true, autocomplete: "customer_company", class: "input-area__text-field" %>
+            <%= f.text_field :company_name, autofocus: true, autocomplete: "company_name", class: "input-area__text-field" %>
           </div>
         <div class="input-area">
           <%= f.submit "登録", class: "submit-btn" %>
