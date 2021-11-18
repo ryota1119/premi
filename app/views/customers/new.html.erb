@@ -1,12 +1,11 @@
 <div class="main">
-  <div class="new_customer">
-    <h1 class="new_customer__title">
+  <div class="form">
+    <h1 class="form__title">
       顧客登録ページ
     </h1>
 
-    <div class="new_customer__form">
-
-      <div class="new_customer__form__input">
+    <div class="form__content">
+      <div class="form__content__input">
         <%= form_with model: @customer, local: true do |f|%>
           <div class="input-area">
             <%= f.label :company_name, "顧客会社名", class: "input-area__title" %>
@@ -28,7 +27,6 @@
               <%= cp.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field" %>
             </div>
           <% end %>
-
           <div class="input-area">
             <%= f.submit "登録", class: "submit-btn" %>
           </div>

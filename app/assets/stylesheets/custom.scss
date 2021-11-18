@@ -300,18 +300,18 @@
   }
 }
 
-// new_customer_form
+// form
 .main {
   padding-top: 24px;
   width: 100%;
-  .new_customer {
+  .form {
     max-width: 360px;
     margin: 0 auto;
     &__title {
       margin-bottom: 16px;
       font-size: 22px;
     }
-    &__form {
+    &__content {
       width: 100%;
       max-width: 360px;
       margin: 0 auto;
