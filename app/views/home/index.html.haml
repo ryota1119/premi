@@ -1,0 +1,18 @@
+%main.home
+  .home__inner
+    .home__inner__message
+      .home__inner__message__top
+        %h1.home__inner__message__text
+          見積書を
+          %br>/
+          かんたん作成！まとめて管理！
+    - if user_signed_in?
+      .create_documents
+        .create_documents__btn
+          = link_to "見積書を作成する", new_estimate_path, class: "create_documents__btn__text"
+    - else
+      .devise_box
+        .devise_box__btn
+          = link_to "ログイン", new_user_session_path, class: "devise_box__btn__text"
+        .devise_box__btn
+          = link_to "新規登録", step1_signup_index_path, class: "devise_box__btn__text"

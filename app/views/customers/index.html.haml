@@ -1,0 +1,20 @@
+.main
+  .customer-index
+    .customer-index__header
+      %h1.customer-index__header__title
+        取引先一覧
+      %div
+        = link_to "顧客登録", new_customer_path, class: "new_customer_btn"
+    .customer-index__contents
+      - if @customers.present?
+        - @customers.each do |customer|
+          .customer-index__contents__info
+            .customer-index__contents__info__company
+              = customer.company_name
+            .customer-index__contents__info__nav
+              .customer-index__contents__info__nav__btn
+                = link_to "編集", edit_customer_path(customer)
+              .customer-index__contents__info__nav__btn
+                = link_to "削除", customer_path(customer), method: :delete
+      - else
+        %p 顧客の登録はありません。

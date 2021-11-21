@@ -1,0 +1,14 @@
+.main
+  .form
+    %h1.form__title
+      顧客情報編集
+    .form__content
+      .form__content__input
+        = form_with model: @customer, local: true do |f|
+          .input-area
+            = f.label :company_name, "顧客会社名", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :company_name, autofocus: true, autocomplete: "company_name", class: "input-area__text-field"
+          .input-area
+            = f.submit "登録", class: "submit-btn"

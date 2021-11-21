@@ -1,0 +1,14 @@
+.main
+  .form
+    %h1.form__title
+      商品登録ページ
+    .form__content
+      .form__content__input
+        = form_with model: @item, local: true do |f|
+          .input-area
+            = f.label :item_name, "商品名", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area__text-field"
+          .input-area
+            = f.submit "登録", class: "submit-btn"

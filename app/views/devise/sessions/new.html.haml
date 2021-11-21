@@ -1,0 +1,21 @@
+%main.signup
+  %h1.signup__title
+    ログイン
+  .signup__form
+    .signup__form__input
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .input-area
+          = f.label :email, class: "input-area__title"
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-area__text-field"
+        .input-area
+          = f.label :password, class: "input-area__title"
+          %br/
+          = f.password_field :password, autocomplete: "current-password", class: "input-area__text-field"
+        - if devise_mapping.rememberable?
+          .input-area
+            = f.check_box :remember_me
+            = f.label :remember_me
+        .input-area
+          = f.submit "Log in", class: "submit-btn"
+      = render "devise/shared/links"

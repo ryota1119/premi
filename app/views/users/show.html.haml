@@ -1,0 +1,34 @@
+.main
+  .mypage
+    %h1.mypage__title
+      = @user.name
+      様の登録情報
+    .mypage__content
+      .profile
+        .profile__header
+          %h3 会員登録情報
+        .profile__body
+          %table.informationbox
+            %tr.informationbox__inner
+              %th.user-info 基本情報
+              %td.details
+                %p.details__big= @user.name
+                %p= @user.email
+                %br/
+              %td.change
+                %p.btn
+                  = link_to "ユーザー編集", edit_user_registration_path, class: "edit-btn"
+            %tr.informationbox__inner
+              %th.company-info 会社情報
+              %td.details
+                %p.details__middle= @company.name
+                %p
+                  〒#{@company.postal_code}
+                %p= @company.address
+                %p
+                  電話番号:#{@company.tel}
+                %p
+                  FAX番号:#{@company.fax}
+              %td.change
+                %p.btn
+                  = link_to "会社情報編集", edit_company_path, class: "edit-btn"

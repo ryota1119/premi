@@ -1,0 +1,27 @@
+%body
+  %header.header-nav
+    .header-nav__bar
+      %h2.app-title
+        = link_to "Premi", root_path
+      - if user_signed_in?
+        .login-btn
+          = link_to "ログアウト", destroy_user_session_path, :method => :delete
+      - elsif request.path == "/signup/step1"
+        .login-btn
+          = link_to "ログインはこちら", new_user_session_path
+      - elsif request.path == "/users/sign_in"
+        .login-btn
+          = link_to "新規登録はこちら", step1_signup_index_path
+      - else
+        .login-btn
+          = link_to "新規登録はこちら", step1_signup_index_path
+    - if user_signed_in?
+      .header-nav__menu
+        .header-nav__menu__item
+          = link_to "ホーム", root_path
+        .header-nav__menu__item
+          = link_to "マイページ", user_path(current_user)
+        .header-nav__menu__item
+          = link_to "取引先一覧", customers_path
+        .header-nav__menu__item
+          = link_to "商品一覧", items_path

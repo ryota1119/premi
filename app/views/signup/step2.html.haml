@@ -1,0 +1,35 @@
+%main.signup
+  %h1.signup__title
+    会社情報入力
+  .signup__form
+    .signup__form__input
+      = form_for @user, url: signup_index_path, method: :post do |f|
+        = hidden_field_tag :current_step, 'step2'
+        = f.fields_for :company do |f|
+          .input-area
+            = f.label :name, "会社名", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field"
+          .input-area
+            = f.label :tel, "電話番号", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :tel, autofocus: true, autocomplete: "tel", class: "input-area__text-field"
+          .input-area
+            = f.label :fax, "FAX番号", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :fax, autofocus: true, autocomplete: "fax", class: "input-area__text-field"
+          .input-area
+            = f.label :postal_code, "郵便番号", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "input-area__text-field"
+          .input-area
+            = f.label :address, "住所", class: "input-area__title"
+            %span.input-area__required 必須
+            %br/
+            = f.text_field :address, autofocus: true, autocomplete: "address", class: "input-area__text-field"
+          .input-area
+            = f.submit "登録を完了する", class: "submit-btn"

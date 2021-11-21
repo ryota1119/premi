@@ -1,0 +1,34 @@
+%main.signup
+  %h1.signup__title
+    Premiに登録する
+  .signup__form
+    .signup__form__input
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .input-area
+          = f.label :name, "名前", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field"
+        .input-area
+          = f.label :email, "メールアドレス", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-area__text-field"
+        .input-area
+          = f.label :password, "パスワード", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length} 文字以上の半角英数記号)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", class: "input-area__text-field"
+        .input-area
+          = f.label :password_confirmation, "パスワード確認", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "password_confirmation", class: "input-area__text-field"
+        .input-area
+          = f.submit "サインイン", class: "submit-btn"
+= render "devise/shared/links"

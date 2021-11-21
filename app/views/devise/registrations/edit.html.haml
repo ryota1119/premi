@@ -1,0 +1,53 @@
+%main.signup
+  %h1.signup__title
+    ユーザー情報編集
+  .signup__form
+    .signup__form__input
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .input-area
+          = f.label :name, "名前", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.text_field :name, autofocus: true, autocomplete: "name", class: "input-area__text-field"
+        .input-area
+          = f.label :email, "メールアドレス", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-area__text-field"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        .input-area
+          = f.label :password, "パスワード", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          %i (変更しない場合は空白にしてください。)
+          %br/
+          - if @minimum_password_length
+            %br/
+            %em
+              = @minimum_password_length
+              characters minimum
+            = f.password_field :password, autocomplete: "new-password", class: "input-area__text-field"
+        .input-area
+          = f.label :password_confirmation, "パスワード確認", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "password_confirmation", class: "input-area__text-field"
+        .input-area
+          = f.label :current_password, "現在のパスワード", class: "input-area__title"
+          %span.input-area__required 必須
+          %br/
+          %i
+            (変更を確認するためには、
+            %br>/
+            現在のパスワードが必要です。)
+          %br/
+          = f.password_field :current_password, autocomplete: "current_password", class: "input-area__text-field"
+        .input-area
+          = f.submit "更新", class: "submit-btn"
+      %h3 Cancel my account
+      %p
+        Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+      = link_to "Back", :back
