@@ -1,10 +1,10 @@
 <div class="main">
-  <div class="new_item">
-    <h1 class="new_item__title">
+  <div class="form">
+    <h1 class="form__title">
       商品情報編集
     </h1>
-    <div class="new_item__form">
-      <div class="new_item__form__input">
+    <div class="form__content">
+      <div class="form__content__input">
         <%= form_with model: @item, local: true do |f|%>
           <div class="input-area">
             <%= f.label :item_name, "商品名", class: "input-area__title" %>
