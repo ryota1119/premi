@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: premi_production
-  username: premi
-  password: <%= ENV['PREMI_DATABASE_PASSWORD'] %>
+  username: root
+  password:
+  socket: /var/lib/mysql/mysql.sock
