@@ -40,6 +40,7 @@ gem 'devise'
 gem 'rails-i18n'
 gem 'pry-rails'
 gem "haml-rails"
+gem 'jquery-rails'
 
 gem 'prawn'
 gem 'prawn-table'

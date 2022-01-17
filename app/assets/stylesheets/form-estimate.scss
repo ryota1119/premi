@@ -1,0 +1,103 @@
+.main {
+  padding-top: 24px;
+  width: 100%;
+  .form-estimate {
+    margin: 30px;
+    &__title {
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    &__content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; 
+      &__right {
+        padding: 24px 32px; 
+        width: 360px;
+        background-color: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+        &__input {
+          .input-area {
+            margin-bottom: 20px;
+            &__title {
+              font-weight: 700;
+              margin-bottom: 4px;
+            }
+            // &__required {
+            //   margin-left: 8px;
+            //   color: #ED4956;
+            // }
+            &__text-field {
+              width: 100%;
+              background-color: #fff;
+              border: 1px solid #e1e5e7;
+              height: 40px;
+              padding: 5px 10px;
+              margin-top: 5px;
+              vertical-align: middle;
+              border-radius: 4px;
+              cursor: text;
+            }
+          }
+        }
+      }
+      &__left {
+        width: 100%;
+        margin-left: 30px;
+        padding: 24px 32px;
+        background-color: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 4px;
+        &__input {
+          .input-area-left {
+            margin-bottom: 20px;
+            display: inline-block;
+            &__title {
+              font-weight: 700;
+              margin-bottom: 4px;
+            }
+            // &__required {
+            //   margin-left: 8px;
+            //   color: #ED4956;
+            // }
+            &__text-field {
+              width: 100%;
+              background-color: #fff;
+              border: 1px solid #e1e5e7;
+              height: 40px;
+              padding: 5px 10px;
+              margin-top: 5px;
+              vertical-align: middle;
+              border-radius: 4px;
+              cursor: text;
+            }
+          }
+          .item-name {
+            width: calc(100% - 430px);
+          }
+          .item-volume {
+            width: 150px;
+          }
+          .item-price {
+            width: 150px;
+          }
+        }
+        .item-add-js-btn,.item-delete-js-btn {
+          margin-top: 6px;
+          font-size: 16px !important;
+          font-weight: bold;
+          border-radius: 4px !important;
+          text-align: center;
+          cursor: pointer;
+          width: 40px;
+          height: 40px;
+          line-height: 38px;
+          border: 1px solid rgb(0, 158, 206);
+          background-color: rgb(0, 158, 206);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
