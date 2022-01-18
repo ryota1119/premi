@@ -1,15 +1,14 @@
 class EstimateForm
   include ActiveModel::Model
-  # include ActiveModel::Attributes
+  include ActiveRecord::AttributeAssignment
 
   attr_accessor :company_name, :department, :position, :name, :effective, :note, :item_name, :volume, :price, :item_id, :user_id, :customer_id, :contact_person_id
 
-  validates :company_name, :name, presence: true
-  validates :volume, :price, presence: true
-
-  def initialize(estimate = Estimate.new)
-    @estimate = estimate
-    self.attributes = @estimate.attributes if @estimate.persisted?
+  with_options presence: true do
+    validates :company_name
+    validates :name
+    validates :volume, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000000 }
+    validates :price, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000000 }
   end
 
   def save
