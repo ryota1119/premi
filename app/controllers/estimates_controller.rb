@@ -18,6 +18,7 @@ class EstimatesController < ApplicationController
   def new
     @estimate = EstimateForm.new
     @user = current_user
+    # @item = ItemCollection.new
   end
 
   def create
@@ -25,6 +26,7 @@ class EstimatesController < ApplicationController
     if @estimate.save
       redirect_to estimates_path
     else
+      flash.now[:alert] = "登録に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end
