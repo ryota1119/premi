@@ -23,21 +23,20 @@
               = f.date_field :effective, autofocus: true, autocomplete: "effective", class: "input-area__text-field"
         .form-estimate__content__left
           .form-estimate__content__left__input
-            - 2.times do |i|
-              .form-estimate__content__left__input__add
-                .input-area-left.item-name
-                  = f.label :item_name, "商品名", class: "input-area-left__title"
-                  = f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area-left__text-field", name: "item[]#{i}[item_name]"
-                .input-area-left.item-volume
-                  = f.label :volume, "数量", class: "input-area-left__title"
-                  = f.text_field :volume, autofocus: true, autocomplete: "volume", class: "input-area-left__text-field-right", name: "item[]#{i}[volumepara]"
-                .input-area-left.item-price
-                  = f.label :price, "価格", class: "input-area-left__title"
-                  = f.text_field :price, autofocus: true, autocomplete: "price", class: "input-area-left__text-field", name: "item[]#{i}[price]"
-                -# %button.item-add-js-btn(type="button")
-                -#   +
-                -# %button.item-delete-js-btn(type="button")
-                -#   &minus;
+            .form-estimate__content__left__input__add{"data-formno" => "0"}
+              .input-area-left.item-name
+                = f.label :item_name, "商品名", class: "input-area-left__title"
+                = f.text_field :item_name, autofocus: true, autocomplete: "item_name", class: "input-area-left__text-field input-item-name", name: "item[][item_name]"
+              .input-area-left.item-volume
+                = f.label :volume, "数量", class: "input-area-left__title"
+                = f.text_field :volume, autofocus: true, autocomplete: "volume", class: "input-area-left__text-field-right", name: "item[][volume]"
+              .input-area-left.item-price
+                = f.label :price, "価格", class: "input-area-left__title"
+                = f.text_field :price, autofocus: true, autocomplete: "price", class: "input-area-left__text-field-right", name: "item[][price]"
+              %button.item-add-js-btn(type="button")
+                +
+              %button.item-delete-js-btn(type="button")
+                &minus;
           .form-estimate__content__left__input
             .input-area
               = f.label :note, "備考", class: "input-area-left__title"
