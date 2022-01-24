@@ -35,7 +35,7 @@ class EstimatesController < ApplicationController
   private
   def estimate_params
     params.require(:estimate_form).permit(
-      :company_name, :department, :position, :name, :effective, :items, :volume, :price, :note
+      :company_name, :department, :position, :name, :effective, :note, :item_name, :volume, :price
       ).merge(user_id: current_user.id)
   end
 end
