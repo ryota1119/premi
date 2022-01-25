@@ -12,15 +12,15 @@ $(document).on('turbolinks:load', function() {
         var index = 0;
         $('.form-estimate__content__left__input__add').each(function(){
           $(this).attr('data-formno',index);
-          $(this).children('.item-name').children().attr('name','item[' + index + '][item_name]');
-          $(this).children('.item-volume').children().attr('name','item[' + index + '][volume]');
-          $(this).children('.item-price').children().attr('name','item[' + index + '][price]');
+          $(this).children('.item-name').children().attr('name','estimate_form[items][' + index + '][item_name]');
+          $(this).children('.item-volume').children().attr('name','estimate_form[items][' + index + '][volume]');
+          $(this).children('.item-price').children().attr('name','estimate_form[items][' + index + '][price]');
           index += 1;
         });
 
-        $(this).parent().next().find('input[name="item[' + cloneNo2 + '][item_name]"]').val("");
-        $(this).parent().next().find('input[name="item[' + cloneNo2 + '][volume]"]').val("");
-        $(this).parent().next().find('input[name="item[' + cloneNo2 + '][price]"]').val("");
+        $(this).parent().next().find('input[name="estimate_form[items][' + cloneNo2 + '][item_name]"]').val("");
+        $(this).parent().next().find('input[name="estimate_form[items][' + cloneNo2 + '][volume]"]').val("");
+        $(this).parent().next().find('input[name="estimate_form[items][' + cloneNo2 + '][price]"]').val("");
       }
       
     });
@@ -33,9 +33,9 @@ $(document).on('turbolinks:load', function() {
       var index = 0;
       $('.form-estimate__content__left__input__add').each(function(){
         $(this).attr('data-formno',index);
-        $(this).children('.item-name').children().attr('name','item[' + index + '][item_name]');
-        $(this).children('.item-volume').children().attr('name','item[' + index + '][volume]');
-        $(this).children('.item-price').children().attr('name','item[' + index + '][price]');1
+        $(this).children('.item-name').children().attr('name','estimate_form[items][' + index + '][item_name]');
+        $(this).children('.item-volume').children().attr('name','estimate_form[items][' + index + '][volume]');
+        $(this).children('.item-price').children().attr('name','estimate_form[items][' + index + '][price]');1
         index += 1;
       });
     });

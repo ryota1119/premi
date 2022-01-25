@@ -2,10 +2,10 @@ class EstimateForm
   include ActiveModel::Model
   # include ActiveModel::Attributes
 
-  attr_accessor :company_name, :department, :position, :name, :effective, :note, :item_name, :volume, :price, :item_id, :user_id, :customer_id, :contact_person_id
+  attr_accessor :company_name, :department, :position, :name, :effective, :note, :item_name, :volume, :price, :item_id, :user_id, :customer_id, :contact_person_id, :estimate_id, :items
   
   validates :company_name, :name, presence: true
-  validates :volume, :price, presence: true
+  validates :item_name, :volume, :price, presence: true
 
   delegate :persisted?, to: :estimate
 
@@ -15,7 +15,6 @@ class EstimateForm
     super(attributes)
   end
 
-
   def save
     return if invalid?
 
@@ -23,15 +22,20 @@ class EstimateForm
       customer = Customer.find_or_initialize_by(company_name: company_name, user_id: user_id)
       contact_person = customer.contact_persons.find_or_initialize_by(name: name, customer_id: customer.id)
       customer.save!
+      
+      estimate = Estimate.new(effective: effective, note: note, user_id: user_id, customer_id: customer.id, contact_person_id: contact_person.id)
+      estimate.save!
 
-      item = Item.find_or_initialize_by(item_name: item_name, user_id: user_id )
-      item.save!
+      # items_names = items.keys.sort.map{ |index| items[index]["item_name"] }
+      item_details = items.keys.sort.map{ |index| items[index] }
+      item_details.each do |item|
+        item = Item.find_or_initialize_by(item_name: item["item_name"], user_id: user_id )
+        item.save!
+        estimate_details = estimate.estimate_details.new(volume: item["volume"], price: item["price"], item_id: item.id, estimate_id: estimate.id)
+      end
 
       # items = split_items.map{|values| Item.find_or_create_by!(item_name: values.item_name, volume: values.volume, price: values.price, note: values.note)}
 
-      estimate = Estimate.new(effective: effective, note: note, user_id: user_id, customer_id: customer.id, contact_person_id: contact_person.id)
-      estimate_details = estimate.estimate_details.new(volume: volume, price: price, item_id: item.id, estimate_id: estimate.id)
-      estimate.save!
     end
     rescue ActiveRecord::RecordInvalid
       false
