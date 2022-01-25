@@ -7,4 +7,4 @@ class Company < ApplicationRecord
   validates :fax, presence: true, format: { with: VALID_PHONE_REGEX }
   validates :postal_code, presence: true, format: { with: VALID_POSTNUM_REGEX }
   validates :address, presence: true
-end
+end 

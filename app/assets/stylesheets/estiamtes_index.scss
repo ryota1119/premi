@@ -1,0 +1,62 @@
+.main {
+  padding-top: 24px;
+  width: 100%;
+  .estimates {
+    max-width: 940px;
+    margin: 0 auto;
+    &__title {
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+    &__content {
+      padding: 0 0 25px 0;
+      .estimate {
+        background: #f0f0f0;
+        padding: 36px 48px 40px 48px;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        &__header {
+          border-bottom: 1px solid #dcdcdc;
+          font-size: 18px;
+          padding: 0 0 10px 0;
+        }
+        &__body {
+          font-weight: normal;
+          font-style: normal;
+          .informationbox {
+            &__inner {
+              padding: 20px;
+              border-bottom: 1px solid #dcdcdc;
+              .estimate-content {
+                display: flex;
+                .customer-info {
+                  width: 40%;
+                  border-right: 1px solid #dcdcdc;
+                  padding-right: 20px;
+                }
+                .details {
+                  width: 60%;
+                  padding-left: 20px;
+                  &__info {
+                    display: flex;
+                    &__item-name{
+                      width: 50%;
+                    }
+                    &__volume {
+                      width: 25%;
+                      text-align: right;
+                    }
+                    &__price {
+                      width: 25%;
+                      text-align: right;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

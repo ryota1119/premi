@@ -32,3 +32,35 @@
               %td.change
                 %p.btn
                   = link_to "会社情報編集", edit_company_path, class: "edit-btn"
+
+  .estimates
+    %h1.estimates__title
+      見積履歴
+    .estimates__content
+      .estimate
+        .estimate__header
+          %h3 
+        .estimate__body
+          .informationbox
+            - @user.estimates.last(2).each do |estimate|
+              .informationbox__inner
+                = l estimate.created_at, format: :short
+                .estimate-content
+                  .customer-info
+                    .customer-info__company
+                      #{estimate.customer.company_name} 御中
+                    .customer-info__department
+                      = estimate.contact_person.department
+                    .customer-info__position
+                      = estimate.contact_person.position
+                    .customer-info__name
+                      #{estimate.contact_person.name} 様
+                  .details
+                    - estimate.estimate_details.each.with_index do |detail, index|
+                      .details__info
+                        .details__info__item-name
+                          #{index + 1} #{detail.item.item_name}
+                        .details__info__volume
+                          #{detail.volume} 個
+                        .details__info__price
+                          #{detail.price} 円

@@ -2,6 +2,7 @@ class EstimatesController < ApplicationController
   before_action :authenticate_user!
   def index
     @user = current_user
+    @company = 
     @customers = @user.customers
     @estimates = @user.estimates
     
@@ -18,7 +19,6 @@ class EstimatesController < ApplicationController
   end
   def create
     @estimate = EstimateForm.new(estimate_params)
-    binding.pry
     if @estimate.save
       redirect_to estimates_path
     else
