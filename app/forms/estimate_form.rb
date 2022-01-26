@@ -20,12 +20,13 @@ class EstimateForm
 
     ActiveRecord::Base.transaction do
       customer = Customer.find_or_initialize_by(company_name: company_name, user_id: user_id)
-      contact_person = customer.contact_persons.find_or_initialize_by(name: name, customer_id: customer.id)
+      contact_person = customer.contact_persons.find_or_initialize_by(department: department, position: position, name: name, customer_id: customer.id)
       customer.save!
       
       estimate = Estimate.new(effective: effective, note: note, user_id: user_id, customer_id: customer.id, contact_person_id: contact_person.id)
       estimate.save!
-
+      
+      binding.pry
       item_details = items.keys.sort.map{ |index| items[index] }
       item_details.each do |item|
         saveItem = Item.find_or_initialize_by(item_name: item["item_name"], user_id: user_id )
