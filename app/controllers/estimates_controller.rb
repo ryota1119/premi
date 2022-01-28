@@ -20,7 +20,7 @@ class EstimatesController < ApplicationController
   def create
     @estimate = EstimateForm.new(estimate_params)
     if @estimate.save
-      # redirect_to estimate_path(@estimate)
+      redirect_to estimates_path
     else
       render :new, status: :unprocessable_entity
     end
