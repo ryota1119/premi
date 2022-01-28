@@ -36,13 +36,14 @@
   .estimates
     %h1.estimates__title
       見積履歴
+      = link_to "一覧", estimates_path(@user)
     .estimates__content
       .estimate
         .estimate__header
           %h3 
         .estimate__body
           .informationbox
-            - @user.estimates.last(2).each do |estimate|
+            - @estimates.last(5).each do |estimate|
               .informationbox__inner
                 = l estimate.created_at, format: :short
                 .estimate-content

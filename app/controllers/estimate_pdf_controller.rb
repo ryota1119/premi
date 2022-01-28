@@ -6,12 +6,13 @@ class EstimatePdfController < ApplicationController
     @user = current_user
     @company = @user.company
     @estimate = Estimate.find(params[:id])
+    @estimate_details = @estimate.estimate_details
     @customer = @estimate.customer
     @contact_person = @estimate.contact_person
     respond_to do |format|
       format.any
       format.pdf do
-        estimate_pdf = PracticePdf::EstimatePdf.new(@user, @company, @estimate, @customer, @contact_person).render
+        estimate_pdf = PracticePdf::EstimatePdf.new(@user, @company, @estimate, @estimate_details, @customer, @contact_person).render
         send_data estimate_pdf,
           filename: 'estimate_pdf.#{@estimate.id}.pdf',
           type: 'application/pdf',

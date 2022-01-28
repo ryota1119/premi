@@ -31,3 +31,5 @@
                           #{detail.volume} 個
                         .details__info__price
                           #{detail.price} 円
+                .pdf-link
+                  = link_to "見積書発行", estimate_pdf_path(estimate, format: "pdf"), class: "pdf-btn"

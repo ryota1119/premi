@@ -4,7 +4,7 @@ class EstimatesController < ApplicationController
     @user = current_user
     @company = 
     @customers = @user.customers
-    @estimates = @user.estimates
+    @estimates = @user.estimates.order("created_at DESC")
     
   end
   def show
@@ -20,7 +20,7 @@ class EstimatesController < ApplicationController
   def create
     @estimate = EstimateForm.new(estimate_params)
     if @estimate.save
-      redirect_to estimates_path
+      # redirect_to estimate_path(@estimate)
     else
       render :new, status: :unprocessable_entity
     end
