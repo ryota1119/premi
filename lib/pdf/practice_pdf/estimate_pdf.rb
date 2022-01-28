@@ -59,7 +59,7 @@ module PracticePdf
       bounding_box([20, 620], :width=>250, :height=>25){
         text "有効期限：", valign: :center
         bounding_box([60, 25], :width=>150, :height=>25){
-          text "#{@estimate.effective}", align: :center, valign: :center
+          text "#{@estimate.effective.strftime('%Y/%m/%d')}", align: :center, valign: :center
           move_down 10
           stroke_horizontal_line  0, 150, :at=> 0
         }

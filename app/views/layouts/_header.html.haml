@@ -22,6 +22,8 @@
         .header-nav__menu__item
           = link_to "マイページ", user_path(current_user)
         .header-nav__menu__item
+          = link_to "見積一覧", estimates_path(@user)
+        .header-nav__menu__item
           = link_to "取引先一覧", customers_path
         .header-nav__menu__item
           = link_to "商品一覧", items_path

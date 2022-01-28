@@ -20,7 +20,7 @@ class EstimatesController < ApplicationController
   def create
     @estimate = EstimateForm.new(estimate_params)
     if @estimate.save
-      redirect_to estimates_path
+      redirect_to estimates_path, notice: '見積もり内容を登録しました。'
     else
       render :new, status: :unprocessable_entity
     end
