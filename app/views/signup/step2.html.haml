@@ -4,6 +4,7 @@
   .signup__form
     .signup__form__input
       = form_for @user, url: signup_index_path, method: :post do |f|
+        = render 'layouts/error_messages', model: f.object
         = hidden_field_tag :current_step, 'step2'
         = f.fields_for :company do |f|
           .input-area
